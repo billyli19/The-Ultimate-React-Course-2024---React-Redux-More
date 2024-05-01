@@ -2,6 +2,21 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const skills = [
+  { name: "HTML", bgColor: "#e44d26", emoji: "💪" },
+  { name: "CSS", bgColor: "#214ce5", emoji: "💅" },
+  { name: "JavaScript", bgColor: "#f7df1e", emoji: "🚀" },
+  { name: "React", bgColor: "#61dbfb", emoji: "⚛️" },
+  { name: "Angular", bgColor: "#de002d", emoji: "🅰️" },
+  { name: "Blazor", bgColor: "#5c2d91", emoji: "🔵" },
+  { name: "SQL", bgColor: "blue", emoji: "🔍" },
+  { name: "Python", bgColor: "#ffce3d", emoji: "🐍" },
+  { name: "Java", bgColor: "#e00308", emoji: "☕" },
+  { name: "C#", bgColor: "#512bd4", emoji: "🔵" },
+  { name: "Git", bgColor: "#f05033", emoji: "🌳" },
+  { name: "GitHub", bgColor: "#212c3e", emoji: "🐙" },
+];
+
 function App() {
   return (
     <div className="card">
@@ -42,28 +57,24 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill name="HTML" bgColor={"#e44d26"} emoji="💪" />
-      <Skill name="CSS" bgColor={"#214ce5"} emoji="💅" />
-      <Skill name="JavaScript" bgColor={"#f7df1e"} emoji="🚀" />
-      <Skill name="React" bgColor={"#61dbfb"} emoji="⚛️" />
-      <Skill name="Angular" bgColor={"#de002d"} emoji="🅰️" />
-      <Skill name="Blazor" bgColor={"#5c2d91"} emoji="🔵" />
-      <Skill name="SQL" bgColor={"blue"} emoji="🔍" />
-      <Skill name="Python" bgColor={"#ffce3d"} emoji="🐍" />
-      <Skill name="Java" bgColor={"#e00308"} emoji="☕" />
-      <Skill name="C#" bgColor={"#512bd4"} emoji="🔵" />
-      <Skill name="Git" bgColor={"#f05033"} emoji="🌳" />
-      <Skill name="GitHub" bgColor={"#212c3e"} emoji="🐙" />
+      {skills.map((skill) => {
+        return (
+          <Skill
+            name={skill.name}
+            bgColor={skill.bgColor}
+            emoji={skill.emoji}
+          />
+        );
+      })}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ name, bgColor, emoji }) {
   return (
-    <div className="skill" style={{ backgroundColor: props.bgColor }}>
-      <span>{props.name}</span>
-      <span>{props.emoji}</span>
-      <span>{props.backgroundColor}</span>
+    <div className="skill" style={{ backgroundColor: bgColor }}>
+      <span>{name}</span>
+      <span>{emoji}</span>
     </div>
   );
 }
